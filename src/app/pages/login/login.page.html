@@ -1,0 +1,26 @@
+<p-card header="Fisma - Login" subheader="Please provide username and password">
+    <form [formGroup]="loginForm">
+        <div class="grid p-4">
+            <div class="col-4 px-2 eu-logo shadow-5"></div>
+            <div class="col-8 px-4">
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input id="username" class="inputfield w-full" type="text" pInputText formControlName="username">
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input id="password" class="inputfield w-full" type="password" pInputText
+                     formControlName="password">
+                </div>
+                <div class="text-orange-500" [style.visibility]="error ? 'visible' : 'hidden'">username and/or
+                    password
+                    incorrect</div>
+            </div>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <div class="flex justify-content-end">
+            <button [disabled]="!loginEnabled" pButton pRipple type="button" label="Login" (click)="login()"></button>
+        </div>
+    </ng-template>
+</p-card>

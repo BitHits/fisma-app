@@ -1,0 +1,36 @@
+<div class="formgrid w-5">
+    <form [formGroup]="productForm">
+        <div class="field">
+            <label for="productName">Product Name <span class="text-orange-500">*</span> </label>
+            <input id="productName" class="inputfield w-full" formControlName="productName" type="text" pInputText>
+            <div class="mt-3 text-orange-500" [style.visibility]="errors.productName.status">
+                {{errors.productName.message}}
+            </div>
+        </div>
+        <div class="field">
+            <label for="productID">Product ID <span class="text-orange-500">*</span></label>
+            <input id="productID" class="inputfield w-full" formControlName="productID" type="number" pInputText>
+            <div class="mt-3 text-orange-500" [style.visibility]="errors.productID.status"> {{errors.productID.message}}
+            </div>
+        </div>
+        <div class="field">
+            <label for="productManager">Product Manager</label>
+            <input id="productManager" class="inputfield w-full" formControlName="productManager" type="text"
+             pInputText>
+            <div class="mt-3 text-orange-500" [style.visibility]="errors.productManager.status">
+                {{errors.productManager.message}}
+            </div>
+        </div>
+        <div class="field">
+            <label for="salesstartdate">Sales Start Date <span class="text-orange-500">*</span></label>
+            <p-calendar id="salesstartdate" class="inputfield w-full ml-4" formControlName="salesStartDate">
+            </p-calendar>
+            <div class="mt-3 text-orange-500" [style.visibility]="errors.salesStartDate.status">
+                {{errors.salesStartDate.message}}
+            </div>
+        </div>
+    </form>
+</div>
+<button [disabled]="!addProductEnabled" pButton pRipple type="button" label="Add Product"
+ (click)="addProduct()"></button>
+ <p-button class="ml-2"  (click)="clear()" label="Clear" severity="secondary" />
